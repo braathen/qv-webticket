@@ -68,19 +68,19 @@ protected void Page_Load(object sender, EventArgs e)
 
 **TicketConfiguration** - Basic configuration options:
 
-* TicketConfiguration.GetWebTicketUri (uri)
+* TicketConfiguration.**GetWebTicketUri** (uri)
 
   The full path to the GetWebTicket.aspx page on the QlikView web server that will be delivering the webtickets. Default is ``http://localhost/QvAJAXZfc/GetWebTicket.aspx``.
 
-* TicketConfiguration.AccessPointUri (uri)
+* TicketConfiguration.**AccessPointUri** (uri)
 
-  The servername or address to where the QlikView AccessPoint is located. This is only necessary to specify if it is different than the servername used in ``GetWebTicket`` above. Typically ``http://qlikview.domain.com``
+  The servername or address to where the QlikView AccessPoint is located. This is only necessary to specify if it is different than the servername used in _TicketConfiguration.GetWebTicket_ above. Typically ``http://qlikview.domain.com``
 
-* TicketConfiguration.TryUri (uri)
+* TicketConfiguration.**TryUri** (uri)
 
-  Should normally not be neccessary to specify, it will default to AccessPoint unless a specific document is set, see ``Document`` below.
+  Should normally not be neccessary to specify, it will default to AccessPoint unless a specific document is set, see _TicketConfiguration.Document_ below.
 
-* TicketConfiguration.BackUri (uri)
+* TicketConfiguration.**BackUri** (uri)
 
   In case of authentication failing for some reason, this is where to redirect the user.
 
@@ -92,18 +92,18 @@ These options are for using Windows Authentication as trust. Default is IP white
 
 * TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
 
-  Use this to specify the Windows Authentication credentials to be used together with ``WindowsAuthentication``. If no credentials are specified ``UseDefaultCredentials`` will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
+  Use this to specify the Windows Authentication credentials to be used together with _TicketConfiguration.WindowsAuthentication_. If no credentials are specified ``UseDefaultCredentials`` will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
 The options below are for redirecting the user to an application instead of the AccessPoint portal:
 
 * TicketConfiguration.**Document** (string)
 
   By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application.
-  > Note: This options requires the TicketConfiguration.QvsHost to also be set.
+  > Note: This options requires the _TicketConfiguration.QvsHost_ to also be set.
 
 * TicketConfiguration.**QvsHost** (string)
 
-  This option is only used together with TicketConfiguration.Document and tells QlikView which QVS host to use. This is the name specified for the QlikView Server in QMC, typically in the form of "QVS@server".
+  This option is only used together with _TicketConfiguration.Document_ and tells QlikView which QVS host to use. This is the name specified for the QlikView Server in QMC, typically in the form of "QVS@server".
 
 * TicketConfiguration.**Select** Dictionary<string, string>
 
