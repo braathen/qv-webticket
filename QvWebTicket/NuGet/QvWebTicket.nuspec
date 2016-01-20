@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>QvWebTicket</id>
+    <version>1.0.0</version>
+    <title>QvWebTicket</title>
+    <authors>Rikard Braathen</authors>
+    <owners>Rikard Braathen</owners>
+    <licenseUrl>https://raw.githubusercontent.com/braathen/qv-webticket/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/braathen/qv-webticket</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>QvWebTicket is an ASP.NET module for simpifying integration with QlikView to other products, platforms or portals using so called "Web Tickets".</description>
+    <tags>qlik qlikview ticket webticket sso integration</tags>
+  </metadata>
+</package>

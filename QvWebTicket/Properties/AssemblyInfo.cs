@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("QvWebTicket")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("QvWebTicket is an ASP.NET module for simpifying integration with QlikView to other products, platforms or portals using so called Web Tickets.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("QvWebTicket")]
