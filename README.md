@@ -51,59 +51,39 @@ protected void Page_Load(object sender, EventArgs e)
 
 **TicketResponse()** - These properties are read only and contains information about the ticket request:
 
-* TicketResponse.**Ticket**
-
+* TicketResponse.**Ticket**  
   The ticket itself, which there normally is not any need of, it's recommended to use the ``RedirectUri`` instead.
-
-* TicketResponse.**RedirectUri**
-
+* TicketResponse.**RedirectUri**  
   This property is set on successfull ticket request and contains the full Uri that the user should be redirected to, including the webticket.
-
-* TicketResponse.**ErrorMessage**
-
+* TicketResponse.**ErrorMessage**  
   In case something went wrong the error message will be in here.
 
 **TicketConfiguration()** - Basic configuration options:
 
-* TicketConfiguration.**GetWebTicketUri** (uri)
-
+* TicketConfiguration.**GetWebTicketUri** (uri)  
   The full path to the GetWebTicket.aspx page on the QlikView web server that will be delivering the webtickets. Default is ``http://localhost/QvAJAXZfc/GetWebTicket.aspx``.
-
-* TicketConfiguration.**AccessPointUri** (uri)
-
+* TicketConfiguration.**AccessPointUri** (uri)  
   The servername or address to where the QlikView AccessPoint is located. This is only necessary to specify if it is different than the servername used in _TicketConfiguration.GetWebTicket_ above. Typically ``http://qlikview.domain.com``
-
-* TicketConfiguration.**TryUri** (uri)
-
+* TicketConfiguration.**TryUri** (uri)  
   Should normally not be neccessary to specify, it will default to AccessPoint unless a specific document is set, see _TicketConfiguration.Document_ below.
-
-* TicketConfiguration.**BackUri** (uri)
-
+* TicketConfiguration.**BackUri** (uri)  
   In case of authentication failing for some reason, this is where to redirect the user.
 
 These options are for using Windows Authentication as trust. Default is IP whitelists:
 
-* TicketConfiguration.**WindowsAuthentication** (true|false)
-  
+* TicketConfiguration.**WindowsAuthentication** (true|false)  
   Set this to ``true`` to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
-
-* TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
-
+* TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)  
   Use this to specify the Windows Authentication credentials to be used together with _TicketConfiguration.WindowsAuthentication_. If no credentials are specified ``UseDefaultCredentials`` will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
 The options below are for redirecting the user to an application instead of the AccessPoint portal:
 
-* TicketConfiguration.**Document** (string)
-
+* TicketConfiguration.**Document** (string)  
   By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application.
   > Note: This options requires the _TicketConfiguration.QvsHost_ to also be set.
-
-* TicketConfiguration.**QvsHost** (string)
-
+* TicketConfiguration.**QvsHost** (string)  
   This option is only used together with _TicketConfiguration.Document_ and tells QlikView which QVS host to use. This is the name specified for the QlikView Server in QMC, typically in the form of "QVS@server".
-
-* TicketConfiguration.**Select** Dictionary<string, string>
-
+* TicketConfiguration.**Select** Dictionary<string, string>  
   To select initial values inside of the application something like can be used. There is currently a limitation of making selections if one object, but multiple values may be selected.
 
   ```c#
