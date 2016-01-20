@@ -44,9 +44,9 @@ protected void Page_Load(object sender, EventArgs e)
 
 **TicketRequest()** - User information for requesting a webticket:
 
-* TicketRequest.**UserId** (string)
+* TicketRequest.**UserId** (string)  
   The user identity of the user that should have a webticket. It can be in any form, prefixed with a domain, a plain username or an email address for example.
-* TicketRequest.**Groups** (string[])
+* TicketRequest.**Groups** (string[])  
   An array of groups the user is a member of, this can be used both for authorization in AccessPoint and in Section Access.
 
 **TicketResponse()** - These properties are read only and contains information about the ticket request:
