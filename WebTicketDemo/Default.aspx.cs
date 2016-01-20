@@ -15,10 +15,6 @@ namespace WebTicketDemo
             {
                 GetWebTicketUri = new Uri("http://localhost/QvAJAXZfc/GetWebTicket.aspx"),
                 WindowsAuthentication = true,
-                //Credentials = new NetworkCredential("john", "secret"),
-                //Document = "Movies Database.qvw",
-                //QvsHost = "QVS@sesth-rfn-win",
-                //Select = new Dictionary<string, string> {{ "LB39", "Banana,Lime" }, { "LB38", "Yellow" }}
             };
 
             // Create a ticket request with userid and groups (semicolon separated)

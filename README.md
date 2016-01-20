@@ -42,16 +42,49 @@ protected void Page_Load(object sender, EventArgs e)
 
 ### Options
 
-* TicketConfiguration.GetWebTicketUri
+User information for requesting a webticket:
 
-  Default: http://localhost/QvAJAXZfc/GetWebTicket.aspx
-  The full path to the GetWebTicket.aspx page on the QlikView (web)server that will be delivering the webtickets. Typically in the form of ``http://localhost/QvAJAXZfc/GetWebTicket.aspx``
+* TicketRequest.UserId (string)
 
-* TicketConfiguration.AccessPointUri
+  The user identity of the user that should have a webticket. It can be in any form, prefixed with a domain, a plain username or an email address for example.
 
-* TicketConfiguration.TryUri
+* TicketRequest.Groups (string[])
 
-* TicketConfiguration.BackUri
+  An array of groups the user is a member of, this can be used both for authorization in AccessPoint and in Section Access.
+
+These properties are read only and contains information about the ticket request:
+
+* TicketResponse.Ticket
+
+  The ticket itself, which there normally is not any need of, it's recommended to use the ``RedirectUri`` instead.
+
+* TicketResponse.RedirectUri
+
+  This property is set on successfull ticket request and contains the full Uri that the user should be redirected to, including the webticket.
+
+* TicketResponse.ErrorMessage
+
+  In case something went wrong the error message will be in here.
+
+Basic options:
+
+* TicketConfiguration.GetWebTicketUri (uri)
+
+  The full path to the GetWebTicket.aspx page on the QlikView web server that will be delivering the webtickets. Default is ``http://localhost/QvAJAXZfc/GetWebTicket.aspx``.
+
+* TicketConfiguration.AccessPointUri (uri)
+
+  The servername or address to where the QlikView AccessPoint is located. This is only necessary to specify if it is different than the servername used in ``GetWebTicket`` above. Typically ``http://qlikview.domain.com``
+
+* TicketConfiguration.TryUri (uri)
+
+  Should normally not be neccessary to specify, it will default to AccessPoint unless a specific document is set, see ``Document`` below.
+
+* TicketConfiguration.BackUri (uri)
+
+  In case of authentication failing for some reason, this is where to redirect the user.
+
+These options are for using Windows Authentication as trust. Default is IP whitelists:
 
 * TicketConfiguration.**WindowsAuthentication** (true|false)
   
@@ -61,7 +94,7 @@ protected void Page_Load(object sender, EventArgs e)
 
   Use this to specify the Windows Authentication credentials to be used together with ``WindowsAuthentication``. If no credentials are specified ``UseDefaultCredentials`` will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
-The options below are for redirecting the user to an application instead of the AccessPoint portal.
+The options below are for redirecting the user to an application instead of the AccessPoint portal:
 
 * TicketConfiguration.**Document** (string)
 

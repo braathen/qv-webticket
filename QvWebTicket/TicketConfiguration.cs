@@ -28,13 +28,17 @@ namespace QvWebTicket
         private Uri _AccessPointUri = null;
         public Uri AccessPointUri
         {
-            get {
+            get
+            {
                 if (_AccessPointUri == null)
                     return new UriBuilder(_GetWebTicketUri.Scheme, _GetWebTicketUri.Host).Uri;
                 else
                     return _AccessPointUri;
             }
-            set { _AccessPointUri = value; }
+            set
+            {
+                _AccessPointUri = new UriBuilder(value.Scheme, value.Host).Uri;
+            }
         }
 
 
