@@ -85,6 +85,7 @@ The options below are for redirecting the user to an application instead of the 
   This option is only used together with _TicketConfiguration.Document_ and tells QlikView which QVS host to use. This is the name specified for the QlikView Server in QMC, typically in the form of "QVS@server".
 * TicketConfiguration.**Select** Dictionary<string, string>  
   To select initial values inside of the application something like can be used. There is currently a limitation of making selections if one object, but multiple values may be selected.
+  
   ```c#
   TicketConfiguration config = new TicketConfiguration()
   {
