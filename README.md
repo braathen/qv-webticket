@@ -45,11 +45,8 @@ protected void Page_Load(object sender, EventArgs e)
 **TicketRequest()** - User information for requesting a webticket:
 
 * TicketRequest.**UserId** (string)
-
   The user identity of the user that should have a webticket. It can be in any form, prefixed with a domain, a plain username or an email address for example.
-
 * TicketRequest.**Groups** (string[])
-
   An array of groups the user is a member of, this can be used both for authorization in AccessPoint and in Section Access.
 
 **TicketResponse()** - These properties are read only and contains information about the ticket request:
@@ -135,12 +132,11 @@ First of all, while not mandatory it can be easier to use IIS for the QlikView W
     * Open the web server config file from C:\ProgramData\QlikTech\WebServer\config.xml
     * Locate the line &lt;GetWebTicket url="/QvAjaxZfc/GetWebTicket.aspx" /&gt;
     * Replace it with the following specifying the IP address(s) of the web server(s) running the code
-
-```xml
-<GetWebTicket url="/QvAjaxZfc/GetWebTicket.aspx">
-    <TrustedIP>127.0.0.1</TrustedIP>
-</GetWebTicket>
-```
+    ```xml
+    <GetWebTicket url="/QvAjaxZfc/GetWebTicket.aspx">
+        <TrustedIP>127.0.0.1</TrustedIP>
+    </GetWebTicket>
+    ```
 
 It's also strongly recommended to prohibit anonymous users in QlikView Server and last but not least set a custom login page for Authentication in the QlikView Web Server configuration and then you set this page which retrieves the webticket as login page of course. This will redirect the user to get a ticket when they're trying to access QlikView.
 
