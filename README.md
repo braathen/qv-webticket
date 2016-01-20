@@ -42,7 +42,7 @@ protected void Page_Load(object sender, EventArgs e)
 
 ### Options
 
-**TicketRequest** - User information for requesting a webticket:
+**TicketRequest()** - User information for requesting a webticket:
 
 * TicketRequest.**UserId** (string)
 
@@ -52,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 
   An array of groups the user is a member of, this can be used both for authorization in AccessPoint and in Section Access.
 
-**TicketResponse** - These properties are read only and contains information about the ticket request:
+**TicketResponse()** - These properties are read only and contains information about the ticket request:
 
 * TicketResponse.**Ticket**
 
@@ -66,7 +66,7 @@ protected void Page_Load(object sender, EventArgs e)
 
   In case something went wrong the error message will be in here.
 
-**TicketConfiguration** - Basic configuration options:
+**TicketConfiguration()** - Basic configuration options:
 
 * TicketConfiguration.**GetWebTicketUri** (uri)
 
@@ -88,7 +88,7 @@ These options are for using Windows Authentication as trust. Default is IP white
 
 * TicketConfiguration.**WindowsAuthentication** (true|false)
   
-  Set this to true to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
+  Set this to ``true`` to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
 
 * TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
 
@@ -112,15 +112,15 @@ The options below are for redirecting the user to an application instead of the 
   ```c#
   TicketConfiguration config = new TicketConfiguration()
   {
-      GetWebTicketUri = new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}
+      Select = new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}
   };
   ```
 
 ### QlikView Configuration
 
 First of all, while not mandatory it can be easier to use IIS for the QlikView Web Server when working with ticketing. It may be required to host your login page anyway.
-* QlikView needs to be an Enterprise Edition Licence
-* QlikView needs to be running in DMS mode for security (see manual)
+* QlikView needs to be an Enterprise Edition Licence.
+* QlikView needs to be running in DMS mode for security (see manual).
 * The QlikView web site in IIS needs to be set up to use Anonymous permissions – it will be expecting windows permissions by default – specifically it is the QVAJAXZFC directory that needs it's permission changing.
 * QlikView needs to trust the code asking for the ticket. There is a web page within the QlikView web server called GetWebTicket.aspx which handles requests for tickets, this will only return a ticket to a trusted user/process and this is identified using one of two options:
 
