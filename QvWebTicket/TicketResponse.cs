@@ -36,8 +36,10 @@ namespace QvWebTicket
 
             Ticket = ticket;
 
+            var backUrl = config.BackUrl != null ? config.BackUrl.ToString() : "";
+
             if (String.IsNullOrEmpty(config.Document))
-                RedirectUri = string.Format("{0}QvAJAXZfc/Authenticate.aspx?type=html&webticket={1}&try={2}&back={3}", config.AccessPointUri, Ticket, Uri.EscapeUriString(config.TryUri.ToString()), Uri.EscapeUriString(config.BackUrl.ToString()));
+                RedirectUri = string.Format("{0}QvAJAXZfc/Authenticate.aspx?type=html&webticket={1}&try={2}&back={3}", config.AccessPointUri, Ticket, Uri.EscapeUriString(config.TryUri.ToString()), Uri.EscapeUriString(backUrl));
             else
             {
                 if (String.IsNullOrEmpty(config.QvsHost))
@@ -50,7 +52,7 @@ namespace QvWebTicket
                 if (config.Select != null && config.Select.Count > 0)
                     selections = GetSelections(config.Select);
 
-                RedirectUri = string.Format("{0}QvAJAXZfc/Authenticate.aspx?type=html&webticket={1}&try={2}&back={3}", config.AccessPointUri, Ticket, Uri.EscapeDataString(config.AccessPointUri + "QvAJAXZfc/AccessPoint.aspx?open=&id=" + config.QvsHost + "%7C" + config.Document) + selections + "&client=Ajax", config.BackUrl);
+                RedirectUri = string.Format("{0}QvAJAXZfc/Authenticate.aspx?type=html&webticket={1}&try={2}&back={3}", config.AccessPointUri, Ticket, Uri.EscapeDataString(config.AccessPointUri + "QvAJAXZfc/AccessPoint.aspx?open=&id=" + config.QvsHost + "%7C" + config.Document) + selections + "&client=Ajax", backUrl);
             }
 
             return this;
