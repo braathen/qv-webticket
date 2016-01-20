@@ -84,8 +84,8 @@ The options below are for redirecting the user to an application instead of the 
   By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application.
   
   > Note: This options requires the _TicketConfiguration.QvsHost_ to also be set.
-* TicketConfiguration.**Select** Dictionary<string, string>  
-  To select initial values inside of the application something like can be used. There is currently a limitation of making selections if one object, but multiple values may be selected.
+* TicketConfiguration.**Select** Dictionary&lt;string, string&gt;  
+  To select initial values inside of the application something like can be used. There is currently a limitation of making selections in one object, but multiple values may be selected.
   
   ```c#
   TicketConfiguration config = new TicketConfiguration()
