@@ -42,6 +42,17 @@ protected void Page_Load(object sender, EventArgs e)
 
 ### Options
 
+* TicketConfiguration.GetWebTicketUri
+
+  Default: http://localhost/QvAJAXZfc/GetWebTicket.aspx
+  The full path to the GetWebTicket.aspx page on the QlikView (web)server that will be delivering the webtickets. Typically in the form of ``http://localhost/QvAJAXZfc/GetWebTicket.aspx``
+
+* TicketConfiguration.AccessPointUri
+
+* TicketConfiguration.TryUri
+
+* TicketConfiguration.BackUri
+
 * TicketConfiguration.**WindowsAuthentication** (true|false)
   
   Set this to true to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
@@ -50,7 +61,7 @@ protected void Page_Load(object sender, EventArgs e)
 
   Use this to specify the Windows Authentication credentials to be used together with ``WindowsAuthentication``. If no credentials are specified ``UseDefaultCredentials`` will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
-#### Options for redirecting the user to an application
+The options below are for redirecting the user to an application instead of the AccessPoint portal.
 
 * TicketConfiguration.**Document** (string)
 
