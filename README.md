@@ -101,15 +101,15 @@ First of all, while not mandatory it can be easier to use IIS for the QlikView W
 * QlikView needs to be running in DMS mode for security (see manual).
 * The QlikView web site in IIS needs to be set up to use Anonymous permissions – it will be expecting windows permissions by default – specifically it is the QVAJAXZFC directory that needs it's permission changing.
 * QlikView needs to trust the code asking for the ticket. There is a web page within the QlikView web server called GetWebTicket.aspx which handles requests for tickets, this will only return a ticket to a trusted user/process and this is identified using one of two options:
-  * **Option 1 – use windows permissions**
+  * **Option 1 – Use Windows permissions**
     * The code or process asking for a ticket needs to run as or provide a windows user identity. The user ID must be a member of the QlikView Administrators windows group on the QlikView server.
-    * As the GetWebTicket page runs under the QVAJAXZFC directory on the web server and one of the above steps made the directory work with Anonymous users –for this page only– enable windows authentication in IIS
+    * As the GetWebTicket page runs under the QvAJAXZfc directory on the web server and one of the above steps made the directory work with Anonymous users **for this page only** enable Windows Authentication in IIS
     * Now the Login page must authenticate itself when requesting a ticket as a windows user and that user must be a QlikView Administrator. In the attached example the login is hardcoded, however this could be configured in other ways
 
-  * **Option 2 – use an IP address white list**
+  * **Option 2 – Use an IP address white list**
     * For some code technologies NTLM is not available or it may just not be appropriate to use it. For these scenarios a “white list” of approved IP addresses can be used rather than a named user. Using this approach the GetWebTicket page will only return a ticket to code running from a specific IP address
     * To configure this option:
-      * Open the web server config file from C:\ProgramData\QlikTech\WebServer\config.xml
+      * Open the web server config file from ``C:\ProgramData\QlikTech\WebServer\config.xml``
       * Locate the line &lt;GetWebTicket url="/QvAjaxZfc/GetWebTicket.aspx" /&gt;
       * Replace it with the following specifying the IP address(s) of the web server(s) running the code
       ```xml
