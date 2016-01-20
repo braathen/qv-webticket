@@ -48,13 +48,14 @@ protected void Page_Load(object sender, EventArgs e)
 
 * TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
 
-  Use this to specify the Windows Authentication credentials to be used together with TicketConfiguration.WindowsAuthentication. If no credentials are specified UseDefaultCredentials will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
+  Use this to specify the Windows Authentication credentials to be used together with ``WindowsAuthentication``. If no credentials are specified ``UseDefaultCredentials`` will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
 #### Options for redirecting the user to an application
 
 * TicketConfiguration.**Document** (string)
 
-  By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application. Note: This options requires the TicketConfiguration.QvsHost to also be set.
+  By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application.
+  > Note: This options requires the TicketConfiguration.QvsHost to also be set.
 
 * TicketConfiguration.**QvsHost** (string)
 
@@ -62,7 +63,7 @@ protected void Page_Load(object sender, EventArgs e)
 
 * TicketConfiguration.**Select** Dictionary<string, string>
 
-  To select initial values inside of the application something like this can be used... _new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}_. There is currently a limitation of making selections if one object, but multiple values may be selected.
+  To select initial values inside of the application something like ``new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}`` can be used. There is currently a limitation of making selections if one object, but multiple values may be selected.
 
 ### QlikView Configuration
 
