@@ -1,8 +1,8 @@
-## About
+### About
 
 QvWebTicket is an ASP.NET module for simpifying integration with QlikView to other products, platforms or portals using so called "Web Tickets".
 
-## Installation
+### Installation
 
 Easiest way to install is by using the NuGet Package Management Console inside of Visual Studio.
 
@@ -10,7 +10,7 @@ Easiest way to install is by using the NuGet Package Management Console inside o
 PM> Install-Package QvWebTicket
 ```
 
-## Getting Started
+### Getting Started
 
 The code example here is more or less what is needed to retrieve a webticket and a redirection url where to forward the user to. Some additional parameters and features are available in other sections below.
 
@@ -40,51 +40,41 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## Options
+### Options
 
-```c#
 TicketConfiguration.**WindowsAuthentication** (true|false)
-```
 
 Default: false
 
 Set this to true to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
 
-```c#
-TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)<br />
-```
+TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
 
 Default: None
 
 Use this to specify the Windows Authentication credentials to be used together with TicketConfiguration.WindowsAuthentication. If no credentials are specified UseDefaultCredentials will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
-#### Options for redirecting the user to an application
+##### Options for redirecting the user to an application
 
-```c#
 TicketConfiguration.**Document** (string)
-```
 
 Default: None
 
 By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application. Note: This options requires the TicketConfiguration.QvsHost to also be set.
 
-```c#
 TicketConfiguration.**QvsHost** (string)
-```
 
 Default: None
 
 This option is only used together with TicketConfiguration.Document and tells QlikView which QVS host to use. This is the name specified for the QlikView Server in QMC, typically in the form of "QVS@server".
 
-```c#
 TicketConfiguration.**Select** Dictionary<string, string>
-```
 
 Default: None
 
 To select initial values inside of the application something like this can be used... _new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}_. There is currently a limitation of making selections if one object, but multiple values may be selected.
 
-## QlikView Configuration
+### QlikView Configuration
 
 First of all, while not mandatory it can be easier to use IIS for the QlikView Web Server when working with ticketing. It may be required to host your login page anyway.
 * QlikView needs to be an Enterprise Edition Licence
@@ -112,7 +102,7 @@ First of all, while not mandatory it can be easier to use IIS for the QlikView W
 
 It's also strongly recommended to prohibit anonymous users in QlikView Server and last but not least set a custom login page for Authentication in the QlikView Web Server configuration and then you set this page which retrieves the webticket as login page of course. This will redirect the user to get a ticket when they're trying to access QlikView.
 
-## SafeForwardList
+### SafeForwardList
 
 In order to prevent man in the middle attacks when using WebTickets it's recommended to use a SafeForwardList like the below example...
 
@@ -131,15 +121,15 @@ In order to prevent man in the middle attacks when using WebTickets it's recomme
 </Authentication>
 ```
 
-## Troubleshooting
+### Troubleshooting
 
 If the request for a webticket fails it more or less always has to do with trust issues, that you are not allowed to request a webticket. Common problems when using white lists is that the IP address for TrustedIP is not what you think it is. For example with IPv6 enabled on the server localhost is not 127.0.0.1 anymore but ::1. Try to ping localhost to see what it resolves into.
 
-## License
+### License
 
 This software is made available "AS IS" without warranty of any kind under The Mit License (MIT). QlikTech support agreement does not cover support for this software.
 
-## Meta
+### Meta
 
 * Code: `git clone git://github.com/braathen/qv-webticket.git`
 * Home: <https://github.com/braathen/qv-webticket>
