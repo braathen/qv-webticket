@@ -80,6 +80,7 @@ The options below are for redirecting the user to an application instead of the 
 
 * TicketConfiguration.**Document** (string)  
   By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application.
+  
   > Note: This options requires the _TicketConfiguration.QvsHost_ to also be set.
 * TicketConfiguration.**QvsHost** (string)  
   This option is only used together with _TicketConfiguration.Document_ and tells QlikView which QVS host to use. This is the name specified for the QlikView Server in QMC, typically in the form of "QVS@server".
