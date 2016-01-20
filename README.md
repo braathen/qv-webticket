@@ -47,9 +47,7 @@ TicketConfiguration.**WindowsAuthentication** (true|false)
   Set this to true to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
 
 TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
-
   Defalt: None
-
   Use this to specify the Windows Authentication credentials to be used together with TicketConfiguration.WindowsAuthentication. If no credentials are specified UseDefaultCredentials will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
 #### Options for redirecting the user to an application
