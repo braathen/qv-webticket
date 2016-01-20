@@ -42,31 +42,31 @@ protected void Page_Load(object sender, EventArgs e)
 
 ### Options
 
-User information for requesting a webticket:
+**TicketRequest** - User information for requesting a webticket:
 
-* TicketRequest.UserId (string)
+* TicketRequest.**UserId** (string)
 
   The user identity of the user that should have a webticket. It can be in any form, prefixed with a domain, a plain username or an email address for example.
 
-* TicketRequest.Groups (string[])
+* TicketRequest.**Groups** (string[])
 
   An array of groups the user is a member of, this can be used both for authorization in AccessPoint and in Section Access.
 
-These properties are read only and contains information about the ticket request:
+**TicketResponse** - These properties are read only and contains information about the ticket request:
 
-* TicketResponse.Ticket
+* TicketResponse.**Ticket**
 
   The ticket itself, which there normally is not any need of, it's recommended to use the ``RedirectUri`` instead.
 
-* TicketResponse.RedirectUri
+* TicketResponse.**RedirectUri**
 
   This property is set on successfull ticket request and contains the full Uri that the user should be redirected to, including the webticket.
 
-* TicketResponse.ErrorMessage
+* TicketResponse.**ErrorMessage**
 
   In case something went wrong the error message will be in here.
 
-Basic options:
+**TicketConfiguration** - Basic configuration options:
 
 * TicketConfiguration.GetWebTicketUri (uri)
 
@@ -107,7 +107,14 @@ The options below are for redirecting the user to an application instead of the 
 
 * TicketConfiguration.**Select** Dictionary<string, string>
 
-  To select initial values inside of the application something like ``new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}`` can be used. There is currently a limitation of making selections if one object, but multiple values may be selected.
+  To select initial values inside of the application something like can be used. There is currently a limitation of making selections if one object, but multiple values may be selected.
+
+  ```c#
+  TicketConfiguration config = new TicketConfiguration()
+  {
+      GetWebTicketUri = new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}
+  };
+  ```
 
 ### QlikView Configuration
 
