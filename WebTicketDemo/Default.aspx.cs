@@ -13,8 +13,7 @@ namespace WebTicketDemo
             // Define some configuration options for the QlikView Server
             TicketConfiguration config = new TicketConfiguration()
             {
-                GetWebTicketUri = new Uri("http://localhost/QvAJAXZfc/GetWebTicket.aspx"),
-                WindowsAuthentication = true,
+                GetWebTicketUri = new Uri("http://localhost/QvAJAXZfc/GetWebTicket.aspx")
             };
 
             // Create a ticket request with userid and groups (semicolon separated)

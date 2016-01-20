@@ -146,7 +146,7 @@ It's also strongly recommended to prohibit anonymous users in QlikView Server an
 
 ### SafeForwardList
 
-In order to prevent man in the middle attacks when using WebTickets it's recommended to use a SafeForwardList like the below example...
+In order to prevent man-in-the-middle attacks when using WebTickets it's recommended to use a SafeForwardList like the below example.
 
 ```xml
 <Authentication>
@@ -155,10 +155,6 @@ In order to prevent man in the middle attacks when using WebTickets it's recomme
     <TrustedHost>10.76.224.35</TrustedHost>
     <TrustedHost>qlikview.domain.com</TrustedHost>
   </SafeForwardList>
-  <GetWebTicket url="/QvAjaxZfc/GetWebTicket.aspx">
-    <TrustedIP>188.65.156.34</TrustedIP>
-    <TrustedIP>10.89.1.251</TrustedIP>
-  </GetWebTicket>
   ...
 </Authentication>
 ```

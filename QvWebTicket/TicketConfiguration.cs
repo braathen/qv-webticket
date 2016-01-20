@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace QvWebTicket
 {
@@ -31,13 +28,13 @@ namespace QvWebTicket
             get
             {
                 if (_AccessPointUri == null)
-                    return new UriBuilder(_GetWebTicketUri.Scheme, _GetWebTicketUri.Host).Uri;
+                    return new UriBuilder(_GetWebTicketUri.Scheme, _GetWebTicketUri.Host, _GetWebTicketUri.Port).Uri;
                 else
                     return _AccessPointUri;
             }
             set
             {
-                _AccessPointUri = new UriBuilder(value.Scheme, value.Host).Uri;
+                _AccessPointUri = new UriBuilder(value.Scheme, value.Host, value.Port).Uri;
             }
         }
 
@@ -60,8 +57,8 @@ namespace QvWebTicket
             set { _TryUri = value; }
         }
 
-        private string _BackUrl = "";
-        public string BackUrl
+        private Uri _BackUrl = null;
+        public Uri BackUrl
         {
             get { return _BackUrl; }
             set { _BackUrl = value; }
