@@ -10,6 +10,8 @@ Easiest way to install is by using the NuGet Package Management Console inside o
 PM> Install-Package QvWebTicket
 ```
 
+Make sure to reference the QvWebTicket.dll file in the project and add appropriate using statements to your code.
+
 ### Getting Started
 
 The code example here is more or less what is needed to retrieve a webticket and a redirection url where to forward the user to. Some additional parameters and features are available in other sections below.
