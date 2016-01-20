@@ -42,35 +42,27 @@ protected void Page_Load(object sender, EventArgs e)
 
 ### Options
 
-TicketConfiguration.**WindowsAuthentication** (true|false)
-..Default: false
-..Set this to true to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
+* TicketConfiguration.**WindowsAuthentication** (true|false)
+  
+  Set this to true to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
 
-TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
+* TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
 
-... Default: None
-
-... Use this to specify the Windows Authentication credentials to be used together with TicketConfiguration.WindowsAuthentication. If no credentials are specified UseDefaultCredentials will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
+  Use this to specify the Windows Authentication credentials to be used together with TicketConfiguration.WindowsAuthentication. If no credentials are specified UseDefaultCredentials will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
 #### Options for redirecting the user to an application
 
-TicketConfiguration.**Document** (string)
+* TicketConfiguration.**Document** (string)
 
-Default: None
+  By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application. Note: This options requires the TicketConfiguration.QvsHost to also be set.
 
-By specifying this the TryUrl will be ignored and instead the user will be redirected directly into the specified application. Note: This options requires the TicketConfiguration.QvsHost to also be set.
+* TicketConfiguration.**QvsHost** (string)
 
-TicketConfiguration.**QvsHost** (string)
+  This option is only used together with TicketConfiguration.Document and tells QlikView which QVS host to use. This is the name specified for the QlikView Server in QMC, typically in the form of "QVS@server".
 
-Default: None
+* TicketConfiguration.**Select** Dictionary<string, string>
 
-This option is only used together with TicketConfiguration.Document and tells QlikView which QVS host to use. This is the name specified for the QlikView Server in QMC, typically in the form of "QVS@server".
-
-TicketConfiguration.**Select** Dictionary<string, string>
-
-Default: None
-
-To select initial values inside of the application something like this can be used... _new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}_. There is currently a limitation of making selections if one object, but multiple values may be selected.
+  To select initial values inside of the application something like this can be used... _new Dictionary<string, string> {{ "LB39", "Banana,Lime" }}_. There is currently a limitation of making selections if one object, but multiple values may be selected.
 
 ### QlikView Configuration
 
