@@ -47,8 +47,10 @@ TicketConfiguration.**WindowsAuthentication** (true|false)
   Set this to true to use Windows Authentication as trust mechanism for the code or process to retrieve a webticket.
 
 TicketConfiguration.**Credentials** NetworkCredential(string userName, string Password)
+
   Defalt: None
-  Use this to specify the Windows Authetnication credentials to be used together with TicketConfiguration.WindowsAuthentication. If no credentials are specified UseDefaultCredentials will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
+
+  Use this to specify the Windows Authentication credentials to be used together with TicketConfiguration.WindowsAuthentication. If no credentials are specified UseDefaultCredentials will be used to allow the calling process to be used instead. This can for example be the application pool in IIS.
 
 #### Options for redirecting the user to an application
 
@@ -66,7 +68,7 @@ TicketConfiguration.**Select** Dictionary<string, string>
 
 ## QlikView Configuration
 
-* First of all, while not mandatory it can be easier to use IIS for the QlikView Web Server when working with ticketing. It may be required to host your login page anyway.
+First of all, while not mandatory it can be easier to use IIS for the QlikView Web Server when working with ticketing. It may be required to host your login page anyway.
 * QlikView needs to be an Enterprise Edition Licence
 * QlikView needs to be running in DMS mode for security (see manual)
 * The QlikView web site in IIS needs to be set up to use Anonymous permissions – it will be expecting windows permissions by default – specifically it is the QVAJAXZFC directory that needs it's permission changing.
@@ -98,6 +100,7 @@ In order to prevent man in the middle attacks when using WebTickets it's recomme
 
 ```xml
 <Authentication>
+  ...
   <SafeForwardList>
     <TrustedHost>10.76.224.35</TrustedHost>
     <TrustedHost>qlikview.domain.com</TrustedHost>
