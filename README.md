@@ -31,10 +31,10 @@ protected void Page_Load(object sender, EventArgs e)
     // Define some configuration options for the QlikView Server
     TicketConfiguration config = new TicketConfiguration()
     {
-        GetWebTicketUri = new Uri("http://qlikview.domain.com/QvAJAXZfc/GetWebTicket.aspx"),
+        GetWebTicketUri = new Uri("http://qlikview.domain.com/QvAJAXZfc/GetWebTicket.aspx")
     };
 
-    // Create a ticket request with userid and groups (semicolon separated)
+    // Create a ticket request with userid and groups
     TicketRequest request = new TicketRequest()
     {
         UserId = "rikard",
