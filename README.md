@@ -2,6 +2,15 @@
 
 QvWebTicket is an ASP.NET module for simpifying integration with QlikView to other products, platforms or portals using so called "Web Tickets".
 
+Some "features" includes...
+
+* A simple module to include in your own projects (available from NuGet)
+* Automatic generation of redirect uri including the ticket
+* Redirect to AccessPoint or directly to an application
+* Make initial selections inside an application
+* Switch easily between Windows Authentication/IP whitelists
+* Minimal configuration
+
 ### Installation
 
 Easiest way to install is by using the NuGet Package Management Console inside of Visual Studio.
@@ -68,7 +77,7 @@ protected void Page_Load(object sender, EventArgs e)
   The servername or address to where the QlikView AccessPoint is located. This is only necessary to specify if it is different than the servername used in _TicketConfiguration.GetWebTicket_ above. Typically ``http://qlikview.domain.com``
 * TicketConfiguration.**TryUri** (uri)  
   Should normally not be neccessary to specify, it will default to AccessPoint unless a specific document is set, see _TicketConfiguration.Document_ below.
-* TicketConfiguration.**BackUri** (uri)  
+* TicketConfiguration.**BackUrl** (uri)  
   In case of authentication failing for some reason, this is where to redirect the user.
 
 These options are for using Windows Authentication as trust. Default is IP whitelists:
