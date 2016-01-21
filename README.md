@@ -1,8 +1,6 @@
 ### About
 
-QvWebTicket is an ASP.NET module for simpifying integration with QlikView to other products, platforms or portals using so called "Web Tickets".
-
-Some "features" includes...
+QvWebTicket is an ASP.NET module for simpifying integration with QlikView to other products, platforms or portals using so called "Web Tickets". Some "features" includes...
 
 * A simple module to include in your own projects (available from NuGet)
 * Automatic generation of redirect uri including the ticket
@@ -10,6 +8,8 @@ Some "features" includes...
 * Make initial selections inside an application
 * Switch easily between Windows Authentication/IP whitelists
 * Minimal configuration
+
+...but most importantly, it's a super easy way of doing webticket integrations for QlikView in your projects.
 
 ### Installation
 
