@@ -76,7 +76,7 @@ namespace QvWebTicket
                 request.ProtocolVersion = HttpVersion.Version10;
                 request.Method = "POST";
                 request.Timeout = 50000;
-                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentType = "text/xml";
                 request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
                 var buffer = Encoding.UTF8.GetBytes(data);
