@@ -1,0 +1,7 @@
+1.0.2	SSL verification disabled for ticket request, making it more
+		co-operative with self-signed and/or untrusted certificates.
+
+1.0.1	Changed ContentType to "text/xml" to be compatible with
+		Qlikview 12.
+
+1.0.0	Initial release.
