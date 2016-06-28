@@ -62,6 +62,8 @@ namespace QvWebTicket
         {
             try
             {
+                ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(config.GetWebTicketUri);
                 if (config.WindowsAuthentication)
                 {
