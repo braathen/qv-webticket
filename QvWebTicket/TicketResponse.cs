@@ -113,7 +113,7 @@ namespace QvWebTicket
             if (groups.Length > 0)
             {
                 groupsXml.Append("<GroupList>");
-                groupsXml.Append(String.Join("", groups.Select(x => "<string> " + x + "</string>")));
+                groupsXml.Append(String.Join("", groups.Select(x => "<string>" + x + "</string>")));
                 groupsXml.Append("</GroupList><GroupsIsNames>true</GroupsIsNames>");
             }
 
